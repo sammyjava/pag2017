@@ -1,0 +1,46 @@
+This is BibTeX, Version 0.99d (TeX Live 2015/Debian)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: hokin-pag2017.aux
+The style file: plain.bst
+Database file #1: hokin-pag2017.bib
+You've used 6 entries,
+            2118 wiz_defined-function locations,
+            543 strings with 5998 characters,
+and the built_in function-call counts, 4256 in all, are:
+= -- 355
+> -- 428
+< -- 1
++ -- 170
+- -- 164
+* -- 441
+:= -- 761
+add.period$ -- 19
+call.type$ -- 6
+change.case$ -- 99
+chr.to.int$ -- 0
+cite$ -- 6
+duplicate$ -- 76
+empty$ -- 168
+format.name$ -- 164
+if$ -- 784
+int.to.chr$ -- 0
+int.to.str$ -- 6
+missing$ -- 7
+newline$ -- 34
+num.names$ -- 12
+pop$ -- 96
+preamble$ -- 1
+purify$ -- 94
+quote$ -- 0
+skip$ -- 53
+stack$ -- 0
+substring$ -- 174
+swap$ -- 15
+text.length$ -- 1
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 22
+warning$ -- 0
+while$ -- 23
+width$ -- 7
+write$ -- 69

@@ -1,0 +1,47 @@
+\begin{thebibliography}{1}
+
+\bibitem{PeanutBase}
+S.~Dash, E.~Cannon, S.R. Kalberer, A.D. Farmer, and S.B. Cannon.
+\newblock {\em Peanuts: Genetics, Processing, and Utilization (AOCS Monograph
+  Series on Oilseeds)}, pages 241--252.
+\newblock Academic Press and AOCS Press, Waltham, MA, 2016.
+\newblock [PeanutBase].
+
+\bibitem{pmid20008513}
+D.~Grant, R.~T. Nelson, S.~B. Cannon, and R.~C. Shoemaker.
+\newblock {{S}oy{B}ase, the {U}{S}{D}{A}-{A}{R}{S} soybean genetics and
+  genomics database}.
+\newblock {\em Nucleic Acids Res.}, 38(Database issue):D843--846, Jan 2010.
+
+\bibitem{pmid24753429}
+A.~Kalderimis, R.~Lyne, D.~Butano, S.~Contrino, M.~Lyne, J.~Heimbach, F.~Hu,
+  R.~Smith, R.~\v{S}t\v{e}p\'{a}n, J.~Sullivan, and G.~Micklem.
+\newblock {{I}nter{M}ine: extensive web services for modern biology}.
+\newblock {\em Nucleic Acids Res.}, 42(Web Server issue):W468--472, Jul 2014.
+
+\bibitem{pmid26097192}
+R.~Lyne, J.~Sullivan, D.~Butano, S.~Contrino, J.~Heimbach, F.~Hu,
+  A.~Kalderimis, M.~Lyne, R.~N. Smith, R.~\v{S}t\v{e}p\'{a}n, R.~Balakrishnan,
+  G.~Binkley, T.~Harris, K.~Karra, S.~A. Moxon, H.~Motenko, S.~Neuhauser,
+  L.~Ruzicka, M.~Cherry, J.~Richardson, L.~Stein, M.~Westerfield, E.~Worthey,
+  and G.~Micklem.
+\newblock {{C}ross-organism analysis using {I}nter{M}ine}.
+\newblock {\em Genesis}, 53(8):547--560, Aug 2015.
+
+\bibitem{pmid20956241}
+I.~Milne, P.~Shaw, G.~Stephen, M.~Bayer, L.~Cardle, W.~T. Thomas, A.~J.
+  Flavell, and D.~Marshall.
+\newblock {{F}lapjack--graphical genotype visualization}.
+\newblock {\em Bioinformatics}, 26(24):3133--3134, Dec 2010.
+
+\bibitem{pmid27775877}
+M.~Munoz-Amatriain, H.~Mirebrahim, P.~Xu, S.~I. Wanamaker, M.~Luo, H.~Alhakami,
+  M.~Alpert, I.~Atokple, B.~J. Batieno, O.~Boukar, S.~Bozdag, N.~Cisse,
+  I.~Drabo, J.~D. Ehlers, A.~Farmer, C.~Fatokun, Y.~Q. Gu, Y.~N. Guo, B.~L.
+  Huynh, S.~A. Jackson, F.~Kusi, C.~T. Lawley, M.~R. Lucas, Y.~Ma, M.~P. Timko,
+  J.~Wu, F.~You, P.~A. Roberts, S.~Lonardi, and T.~J. Close.
+\newblock {{G}enome resources for climate-resilient cowpea, an essential crop
+  for food security}.
+\newblock {\em Plant J.}, Oct 2016.
+
+\end{thebibliography}
