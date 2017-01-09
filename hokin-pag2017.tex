@@ -33,6 +33,7 @@
 \usepackage{wrapfig}  % Allows wrapping text around tables and figures
 \usepackage{graphicx} % Required for including images
 \usepackage{booktabs} % Top and bottom rules for table
+%% \usepackage{tikz}     % diagrams
 
 %% natbib drops numbers and we'll shrink text size; drop labels
 \usepackage{natbib}
@@ -156,8 +157,8 @@
   \textbf{The core InterMine data model does not include genetic data}.
 
   \textbf{The USDA-funded Legume Information System (LIS)} collects and provides both genomic and genetic data for legumes on the main LIS site \url{legumeinfo.org} as well as
-  SoyBase \url{soybase.org} and PeanutBase \url{peanutbase.org}. The LIS and PeanutBase sites use the Tripal extension of the Drupal web application, using chado databases which have been
-  modified to include genetic data.
+  SoyBase \url{soybase.org} and PeanutBase \url{peanutbase.org}. The LIS and PeanutBase sites use the Tripal extension of the Drupal web application, using Chado databases which 
+  include genetic data.
 
   \textbf{The NSF-funded Legume Federation}, in turn, was chartered to to provide a ``one-stop shop'' for legume breeders, geneticists and biologists, federating data sources such as LIS, JCVI's MedicMine, and others.
   For that purpose, \textbf{we have extended InterMine to include genetic data} and we have added new visualization and analysis tools.
@@ -170,7 +171,7 @@
   \end{center}
 
   Genetic data is largely independent of genomic data: genetic features are positioned on linkage groups in centiMorgans, while genomic features are positioned on chromosomes in sequence coordinates.
-  \textbf{Genetic markers have both genetic and genomic locations.} We make use of this to place genetic features on the genome.
+  \textbf{Genetic markers can have both genetic and genomic locations.} We make use of this to relate genetic features to the genome.
 
   %% ----------------------------------------------------------------------------------------
   %% 	OBJECTIVES
@@ -180,7 +181,7 @@
   
   \begin{enumerate}
   \item Create a convenient environment for plant breeders and biologists to study legume genomic and genetic data.
-  \item Provide query and visualization tools to analyse genetic traits along with genomic features.
+  \item Provide query and visualization tools to analyze genetic traits along with genomic features.
   \item Enable cross-species analysis amongst legumes and other plants.
   \end{enumerate}
 
@@ -200,14 +201,15 @@
 
     \item[Germplasm] describes the parents of a cross used in a mapping experiment.
 
-    \item[MappingPopulation] is a container for a genotyping experiment: \textbf{parents}, \textbf{geneticMaps}, \textbf{geneticMarkers} and \textbf{genotypingLines}.
+    \item[MappingPopulation] is a container for a mapping experiment: \textbf{parents}, \textbf{geneticMaps}, \textbf{geneticMarkers} and \textbf{genotypingLines}.
       
-    \item[GenotypingLine] describes a particular plant line, e.g. an RIL, in a \textbf{mappingPopulation}.
+    \item[GenotypingLine] describes a particular plant line, e.g. a recombinant inbred line, in a \textbf{mappingPopulation}.
       
-    \item[GeneticMarker] is a \textbf{SequenceFeature} representing a SNP or other marker, belonging to one or more \textbf{mappingPopulations}, with a \textbf{chromosomeLocation} as well as \textbf{linkageGroupPositions}.
-      It is related to \textbf{QTLs} in the original data sources. It has \textbf{associatedGenes} which overlap its genomic location.
+    \item[GeneticMarker] is a \textbf{SequenceFeature} representing a SNP or other marker, belonging to one or more \textbf{mappingPopulations},
+      with a \textbf{chromosomeLocation} as well as \textbf{linkageGroupPositions}.
+      It is related to \textbf{QTLs} in the original data sources. It may have \textbf{associatedGenes} which overlap its genomic location.
       
-    \item[GenotypeValue] is a single value on the markers $\times$ lines genotyping matrix with the value of the parental allele (usually denoted by ``A'' or ``B'').
+    \item[GenotypeValue] is a single value on the markers $\times$ lines genotyping matrix with the value of the parental allele (often denoted by ``A'' or ``B'' or ``H'').
       
     \item[GeneticMap] contains the \textbf{linkageGroups} derived from one or more \textbf{mappingPopulations} (more than one in the case of a consensus map).
       
@@ -268,7 +270,7 @@
   \section*{PROCESSING}
 
   A post-processor runs through the QTLs and finds the genes that are located within the range spanned by the QTL's associated markers, if the QTL has more than one. The QTL--marker associations
-  are drawn from the original data source (as opposed to using all the markers lying within a QTL's range on a linkage group). Therefor, QTLs which have zero or only one associated marker do not have
+  are drawn from the original data source (as opposed to using all the markers lying within a QTL's range on a linkage group). Therefore, QTLs which have zero or only one associated marker do not have
   spanned genes.
 
   \begin{center}
@@ -280,6 +282,11 @@
     \includegraphics[width=\figwidth]{QTL-report.png} % screen grab of QTL report showing markers and spanned genes
     \captionof{figure}{
       Genes spanned by a QTL via its associated markers are determined in a post-processor and linked on the QTL report page.
+    }
+    \vspace{24pt}
+    \includegraphics[width=5in]{gene-seed-oil-query.png} % screen grab of query on genes with spanning QTLs containing Seed oil
+    \captionof{figure}{
+      This Soymine query returns 7,731 genes spanned by the 29 QTLs containing ``Seed oil'' that have at least two flanking markers.
     }
   \end{center}
 
@@ -316,6 +323,13 @@
   \section*{Acknowledgements}
   
   \noindent This research was funded by National Science Foundation grant \#1444806.
+
+  \begin{center}
+    \includegraphics[height=2in]{nsf1.jpg} % NSF logo
+    \hspace{1in}
+    \includegraphics[height=2in]{LegFedSiteLogo.pdf} % LegFed logo
+  \end{center}
+  
   
 \end{multicols*}
 
