@@ -195,7 +195,7 @@
 
   \subsection*{Genetic data}
 
-  The core InterMine data model does not contain genetic data. We have added the following classes:
+  We have added the following genetic data classes to the InterMine data model:
 
   \begin{description}
 
@@ -207,7 +207,7 @@
       
     \item[GeneticMarker] is a \textbf{SequenceFeature} representing a SNP or other marker, belonging to one or more \textbf{mappingPopulations},
       with a \textbf{chromosomeLocation} as well as \textbf{linkageGroupPositions}.
-      It is related to \textbf{QTLs} in the original data sources. It may have \textbf{associatedGenes} which overlap its genomic location.
+      It is related to \textbf{QTLs} in the original data sources.
       
     \item[GenotypeValue] is a single value on the markers $\times$ lines genotyping matrix with the value of the parental allele (often denoted by ``A'' or ``B'' or ``H'').
       
@@ -215,7 +215,7 @@
       
     \item[LinkageGroup] contains the \textbf{geneticMarkers} and \textbf{QTLs} with their positions and ranges. Each belongs to one \textbf{geneticMap}.
       
-    \item[QTL] is a quantitative trait locus with one or more \textbf{linkageGroupRanges}. It has \textbf{spannedGenes} which overlap its \textbf{associatedMarkers} on the genome.
+    \item[QTL] is a quantitative trait locus with one or more \textbf{linkageGroupRanges}. It has \textbf{spannedGenes} which are spanned by the range of its \textbf{associatedMarkers} on the genome.
       (QTL--marker associations are given in the primary data sources, not by comparing the QTL to markers on linkage groups. There are often many more markers within a QTL's genetic range than are explicitly
       associated with that QTL by the original scientists.)
 
@@ -223,13 +223,14 @@
 
   \subsection*{Genomic data modifications}
 
-  Several additions to the core InterMine data model are needed to accomodate genomic data pulled from the LIS databases, in particular, Phytozome gene families, as well as the new connection to genetic markers.
+  Several additions to the core InterMine data model are needed to accomodate genomic data pulled from the LIS databases, in particular,
+  Phytozome gene families, as well as the new connection to genetic markers.
 
   \begin{description}
 
     \item[Gene] has additional references to \textbf{geneFamily}, \textbf{homologues} and \textbf{spanningQTLs}.
 
-    \item[GeneFamily] describes a Phytozome gene family, referencing a \textbf{consensusRegion}.
+    \item[GeneFamily] describes a Phytozome gene family, referencing a \textbf{consensusRegion} and containing \textbf{genes}.
 
     \item[ConsensusRegion] is a \textbf{BioEntity} which holds the sequence associated with a \textbf{geneFamily}.
 
@@ -270,8 +271,8 @@
   \section*{PROCESSING}
 
   A post-processor runs through the QTLs and finds the genes that are located within the range spanned by the QTL's associated markers, if the QTL has more than one. The QTL--marker associations
-  are drawn from the original data source (as opposed to using all the markers lying within a QTL's range on a linkage group). Therefore, QTLs which have zero or only one associated marker do not have
-  spanned genes.
+  are drawn from the original data source (as opposed to using all the markers lying within a QTL's range on a linkage group). Therefore, QTLs which have zero or only one associated marker are not
+  assigned spanned genes.
 
   \begin{center}
     \includegraphics[width=\figwidth]{genetic-marker-jbrowse.png} % screen grab of markers and genes on a JBrowse

@@ -42,7 +42,7 @@
 \renewcommand{\Huge}{\fontsize{62}{66}\selectfont}
 
 \newcommand{\smallish}{\fontsize{28}{32}\selectfont}
-\newcommand{\citationsize}{\fontsize{22}{26pt plus 1pt minus 1pt}\selectfont}
+\newcommand{\citationsize}{\fontsize{20}{26pt plus 2pt minus 0pt}\selectfont}
 \newcommand{\veryHuge}{\fontsize{80}{84}\selectfont}
 \newcommand{\VeryHuge}{\fontsize{90}{94}\selectfont}
 \newcommand{\VERYHuge}{\fontsize{100}{104}\selectfont}

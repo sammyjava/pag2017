@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015/Debian) (preloaded format=xelatex 2016.4.25)  9 JAN 2017 16:01
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015/Debian) (preloaded format=xelatex 2016.4.25)  9 JAN 2017 16:31
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -430,7 +430,7 @@ File: figures/QTL-report.png Graphic file (type QTm)
 File: figures/gene-seed-oil-query.png Graphic file (type QTm)
 
 <use  "figures/gene-seed-oil-query.png" > (./hokin-pag2017.bbl
-LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <22> not available
+LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <20> not available
 (Font)              Font shape `T1/lmss/m/sl' tried instead on input line 5.
 )
 File: figures/nsf1.jpg Graphic file (type QTm)
