@@ -37,7 +37,7 @@
 \renewcommand{\normalsize}{\fontsize{32}{36}\selectfont}
 \renewcommand{\large}{\fontsize{34}{38}\selectfont}
 \renewcommand{\Large}{\fontsize{36}{40}\selectfont}
-\renewcommand{\LARGE}{\fontsize{48}{48}\selectfont}
+\renewcommand{\LARGE}{\fontsize{40}{40pt plus 2pt minus 2pt}\selectfont}
 \renewcommand{\huge}{\fontsize{52}{56}\selectfont}
 \renewcommand{\Huge}{\fontsize{62}{66}\selectfont}
 

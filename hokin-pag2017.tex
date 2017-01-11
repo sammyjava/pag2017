@@ -38,6 +38,7 @@
 %% natbib drops numbers and we'll shrink text size; drop labels
 \usepackage{natbib}
 \renewcommand{\bibfont}{\citationsize}
+\renewcommand{\bibsection}{\subsection*{References}}
 \makeatletter
 \renewcommand\@biblabel[1]{}
 \makeatother
@@ -61,8 +62,8 @@
 %%          minus 2pt means that TeX can shrink it by at most 2pt
 \usepackage{titlesec}
 
-\titlespacing{\section}{0pt}{14pt plus 4pt minus 2pt}{0em}
-\titlespacing{\subsection}{0pt}{14pt plus 4pt minus 2pt}{0em}
+\titlespacing{\section}{0pt}{12pt plus 2pt minus 2pt}{0em}
+\titlespacing{\subsection}{0pt}{12pt plus 2pt minus 2pt}{0em}
 \titlespacing{\subsubsection}{0pt}{12pt plus 2pt minus 2pt}{0em}
 
 \titleformat{\section}{\color{NCGRBlue}\LARGE\bfseries}{\color{NCGRBlue}\thesection}{0em}{}
@@ -101,24 +102,27 @@
 
 \veryHuge\color{NCGRBlue} 
 \textbf{Integrating Genetic with Genomic Data in Legume InterMines}
-\vspace{5mm} \\
+
 \normalsize\color{Black}
 
-\begin{minipage}[c]{0.25\linewidth}
+\begin{minipage}[c]{188mm}
   \LARGE Sam Hokin, Andrew Farmer \\
   \normalsize \url{shokin@ncgr.org}, \url{adf@ncgr.org}
 \end{minipage}
-\begin{minipage}[c]{0.32\linewidth}
-  \includegraphics[height=50mm]{NCGR_logo.pdf}     % NCGR logo
+\begin{minipage}[c]{200mm}
+  \includegraphics[height=40mm]{NCGR_logo.pdf} \\    % NCGR logo
 \end{minipage}
-\begin{minipage}[c]{0.18\linewidth}
-  \LARGE
-  Vivek Krishnakumar \\
-  \normalsize
-  \url{vkrishna@jcvi.org}
+\begin{minipage}[c]{120mm}
+  \LARGE Vivek Krishnakumar \\
+  \normalsize \url{vkrishna@jcvi.org}
 \end{minipage}
-\begin{minipage}[c]{0.24\linewidth}
-  \includegraphics[height=50mm]{VenterInstituteLogoR.png}       % JCVI logo
+\begin{minipage}[c]{175mm}
+  \includegraphics[height=40mm]{VenterInstituteLogoR.png} \\      % JCVI logo
+\end{minipage}
+\begin{minipage}[c]{100mm}
+  \includegraphics[width=40mm]{nsf1.jpg} % NSF logo
+  \hspace{15mm}
+  \includegraphics[width=40mm]{LegFedSiteLogo.pdf} % LegFed logo
 \end{minipage}
 
 \color{NCGRBlue}\hrulefill
@@ -160,7 +164,9 @@
   SoyBase \url{soybase.org} and PeanutBase \url{peanutbase.org}. The LIS and PeanutBase sites use the Tripal extension of the Drupal web application, using Chado databases which 
   include genetic data.
 
-  \textbf{The NSF-funded Legume Federation} \url{legumefederation.org}, in turn, was chartered to to provide a ``one-stop shop'' for legume breeders, geneticists and biologists, federating data sources such as LIS, MTGD <medicagogenome.org>, and others.
+  \textbf{The NSF-funded Legume Federation} \\
+  \url{legumefederation.org}, in turn, was chartered to to provide a ``one-stop shop'' for legume breeders, geneticists and biologists,
+  federating data sources such as LIS \url{legumeinfo.org}, MTGD \url{medicagogenome.org}, and others.
   For that purpose, \textbf{we have extended InterMine to include genetic data} and we have added new visualization and analysis tools.
 
   \begin{center}
@@ -170,7 +176,7 @@
     }
   \end{center}
 
-  Genetic data is largely independent of genomic data: genetic features are positioned on linkage groups and measured in centiMorgans (\textbf{cM}), while genomic features are positioned on chromosomes and measured in base pairs (\textbf{bp}).
+  Genetic data is largely independent of genomic data: genetic features are positioned on linkage groups and measured in centiMorgans (cM), while genomic features are positioned on chromosomes and measured in base pairs (bp).
   \textbf{Genetic markers can have both genetic and genomic locations.} We make use of this to relate genetic features to the genome.
 
   %% ----------------------------------------------------------------------------------------
@@ -182,7 +188,7 @@
   \begin{enumerate}
   \item Create a convenient environment for plant breeders and biologists to study legume genomic and genetic data.
   \item Provide query and visualization tools to analyze genetic traits along with genomic features.
-  \item Enable cross-species analysis amongst legumes and other plants.
+  \item Enable cross-species analysis amongst legumes and other plants in order to help crop improvement efforts.
   \end{enumerate}
 
   \color{Black}
@@ -195,7 +201,8 @@
 
   \subsection*{Genetic data}
 
-  The core InterMine data model does not contain genetic data. Entities are referred to as an InterMine \textbf{class}, with attributes and references to other \textbf{classes}. We have added the following classes:
+  In InterMine, data entities are represented by a Java \textbf{Class}, with attributes and references to other \textbf{classes}.
+  We have added the following genetic data classes to the core data model:
 
   \begin{description}
 
@@ -207,13 +214,13 @@
       
     \item[GeneticMarker] is a \textbf{SequenceFeature} representing a SNP or other marker, belonging to one or more \textbf{mappingPopulations},
       with a \textbf{chromosomeLocation} as well as \textbf{linkageGroupPositions}.
-      It is related to \textbf{QTLs} in the original data sources. It may have \textbf{associatedGenes} which overlap its genomic location.
+      It is related to \textbf{QTLs} in the original data sources.
       
     \item[GenotypeValue] is a single value on the markers $\times$ lines genotyping matrix with the value of the parental allele (often denoted by ``A'' or ``B'' or ``H'').
       
     \item[GeneticMap] contains the \textbf{linkageGroups} derived from one or more \textbf{mappingPopulations} (more than one in the case of a consensus map).
       
-    \item[LinkageGroup] (\textbf{LG}) contains the \textbf{geneticMarkers} and \textbf{QTLs} with their positions and ranges. Each \textbf{LG} belongs to one \textbf{geneticMap}.
+    \item[LinkageGroup] contains the \textbf{geneticMarkers} and \textbf{QTLs} with their positions and ranges. Each linkage group belongs to one \textbf{geneticMap}.
       
     \item[QTL] is a quantitative trait locus with one or more \textbf{linkageGroupRanges}. It has \textbf{spannedGenes} which overlap its \textbf{associatedMarkers} on the genome.
       (QTL--marker associations are given in the primary data sources, not by comparing the QTL to markers on linkage groups. There are often many more markers within a QTL's genetic range than are explicitly
@@ -223,7 +230,8 @@
 
   \subsection*{Genomic data modifications}
 
-  Several additions (and extensions) to the core InterMine data model are needed to accommodate genomic data pulled from the LIS databases, in particular, Phytozome gene families, as well as the new connection to genetic markers.
+  Several additions and extensions to the core InterMine data model are needed to accommodate genomic data pulled from the LIS databases ---
+  in particular, Phytozome gene families, as well as the new connection to genetic markers.
 
   \begin{description}
 
@@ -284,7 +292,7 @@
       Genes spanned by a QTL via its associated markers are determined in a post-processor and linked on the QTL report page.
     }
     \vspace{24pt}
-    \includegraphics[width=5in]{gene-seed-oil-query.png} % screen grab of query on genes with spanning QTLs containing Seed oil
+    \includegraphics[width=4in]{gene-seed-oil-query.png} % screen grab of query on genes with spanning QTLs containing Seed oil
     \captionof{figure}{
       This Soymine query returns 7,731 genes spanned by the 29 QTLs containing ``Seed oil'' that have at least two flanking markers.
     }
@@ -296,7 +304,12 @@
 
   \section*{NEXT STEPS}
 
-  What data and tools would YOU like to see in a genetic+genomic mine? Send us your comments and suggestions via Email (\url{https://legumefederation.org/contact}) or Twitter (\textbf{@LegumeFed}).
+  The Legume Federation hopes to translate discoveries of the genetic basis underlying key traits made in one species 
+  to other species, aiding crop improvement efforts across the family.
+  We will use InterMine to aggregate trait mapping experiments being performed by plant breeders, augmenting the comparative genomics well underway.
+
+  What data and tools would YOU like to see in a genetic+genomic mine?
+  Send us your suggestions at \url{legumefederation.org/contact} or Twitter \textbf{@LegumeFed}.
 
   %%----------------------------------------------------------------------------------------
   %%	FORTHCOMING RESEARCH
@@ -320,17 +333,10 @@
   %%	ACKNOWLEDGEMENTS
   %%----------------------------------------------------------------------------------------
 
-  \section*{Acknowledgements}
+  \subsection*{Acknowledgements}
   
-  \noindent This research was funded by National Science Foundation grant \#1444806.
+  \noindent \smallish This research was funded by National Science Foundation grant \#1444806.
 
-  \begin{center}
-    \includegraphics[height=2in]{nsf1.jpg} % NSF logo
-    \hspace{1in}
-    \includegraphics[height=2in]{LegFedSiteLogo.pdf} % LegFed logo
-  \end{center}
-  
-  
 \end{multicols*}
 
 \end{document}
